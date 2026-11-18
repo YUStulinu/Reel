@@ -1,0 +1,9 @@
+data/
+run/
+target/
+**/target/
+player/node_modules/
+player/dist/
+player/reel.wasm
+server/media/
+__pycache__/

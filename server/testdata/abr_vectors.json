@@ -1,0 +1,10 @@
+{
+  "kbps": [200, 400, 800, 1600],
+  "cases": [
+    {"state": {"buffer": 0, "throughput": [], "last": -1}, "expect": {"throughput": 0, "buffer": 0, "hybrid": 0}},
+    {"state": {"buffer": 8, "throughput": [1000, 1000, 1000], "last": 1}, "expect": {"throughput": 2, "buffer": 1, "hybrid": 1}},
+    {"state": {"buffer": 12, "throughput": [3000, 2500, 2000, 4000, 3500], "last": 1}, "expect": {"throughput": 3, "buffer": 1, "hybrid": 2}},
+    {"state": {"buffer": 1.5, "throughput": [5000], "last": 3}, "expect": {"throughput": 3, "buffer": 0, "hybrid": 0}},
+    {"state": {"buffer": 26, "throughput": [300], "last": 0}, "expect": {"throughput": 0, "buffer": 3, "hybrid": 0}}
+  ]
+}

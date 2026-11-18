@@ -1,0 +1,5 @@
+{
+  "rust-analyzer.linkedProjects": ["codec/Cargo.toml", "player/wasm/Cargo.toml"],
+  "files.exclude": { "data": true, "run": true },
+  "search.exclude": { "data": true, "run": true, "**/target": true, "player/node_modules": true }
+}

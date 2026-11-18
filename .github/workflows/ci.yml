@@ -1,0 +1,61 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  codec:
+    name: Codec (Rust) with the AVX2 kernels (C)
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - name: Tests (AVX2 vs scalar, encoder/decoder bit-exactness, rate control)
+        run: cd codec && cargo test --release
+      - name: Same tests on the scalar code
+        run: cd codec && REEL_NO_SIMD=1 cargo test --release
+
+  player:
+    name: WebAssembly decoder and TypeScript player
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: wasm32-unknown-unknown
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+      - name: Build and test (the wasm decoder must match the native checksums)
+        run: cd player && npm ci && npm run wasm && npm run build && npm test
+
+  server:
+    name: Adaptive streaming server (Go)
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version: "1.24"
+      - run: cd server && go vet ./... && go test ./...
+
+  evaluation:
+    name: Metrics (Python) and a short comparison with x264
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg && pip install numpy
+      - name: Metric tests
+        run: python -m unittest discover eval
+      - name: Reel vs x264 on 20 frames of foreman
+        run: |
+          (cd codec && cargo build --release)
+          scripts/fetch_clips.sh foreman_cif
+          REEL=codec/target/release/reel python eval/evaluate.py quality --clips foreman_cif --encoders reel,x264-P --frames 20 --jobs 4
+          python eval/evaluate.py report | head -12

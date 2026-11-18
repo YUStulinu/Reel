@@ -1,0 +1,13 @@
+{
+  "name": "reel-player",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "wasm": "cd wasm && cargo build --release --target wasm32-unknown-unknown && node -e \"require('fs').copyFileSync(require('path').join(process.env.CARGO_TARGET_DIR || 'target', 'wasm32-unknown-unknown/release/reel_wasm.wasm'), '../reel.wasm')\"",
+    "build": "tsc -p .",
+    "test": "node --test \"test/*.test.ts\""
+  },
+  "devDependencies": {
+    "typescript": "5.9.3"
+  }
+}

@@ -1,0 +1,24 @@
+[package]
+name = "reel"
+version = "0.1.0"
+edition = "2021"
+license = "MIT"
+
+[lib]
+path = "src/lib.rs"
+
+[[bin]]
+name = "reel"
+path = "src/main.rs"
+
+[features]
+default = ["simd"]
+# AVX2 transforms and SAD/SATD from simd/reel_simd.c (runtime-detected)
+simd = []
+# motion estimation on the GPU (cuda/me.cu, needs nvcc)
+cuda = []
+
+[dependencies]
+
+[profile.release]
+debug = 1

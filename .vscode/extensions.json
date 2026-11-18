@@ -1,0 +1,3 @@
+{
+  "recommendations": ["rust-lang.rust-analyzer", "golang.go", "ms-python.python", "nvidia.nsight-vscode-edition", "llvm-vs-code-extensions.vscode-clangd"]
+}

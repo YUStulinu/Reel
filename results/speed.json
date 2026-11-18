@@ -1,0 +1,114 @@
+[
+ {
+  "clip": "foreman_cif",
+  "encoder": "reel",
+  "param": 32,
+  "enc_fps": 15.3,
+  "dec_fps": 350.81,
+  "me_seconds": 0.0
+ },
+ {
+  "clip": "foreman_cif",
+  "encoder": "reel full-search CPU",
+  "param": 32,
+  "enc_fps": 2.17,
+  "dec_fps": 345.96,
+  "me_seconds": 59.363
+ },
+ {
+  "clip": "foreman_cif",
+  "encoder": "reel full-search CUDA",
+  "param": 32,
+  "enc_fps": 15.11,
+  "dec_fps": 352.29,
+  "me_seconds": 0.454
+ },
+ {
+  "clip": "foreman_cif",
+  "encoder": "x264",
+  "param": 32,
+  "enc_fps": 236.5930599369085,
+  "dec_fps": 2343.75,
+  "me_seconds": null
+ },
+ {
+  "clip": "foreman_cif",
+  "encoder": "x264-P",
+  "param": 32,
+  "enc_fps": 377.8337531486146,
+  "dec_fps": 2631.578947368421,
+  "me_seconds": null
+ },
+ {
+  "clip": "foreman_cif",
+  "encoder": "x265",
+  "param": 32,
+  "enc_fps": 104.3115438108484,
+  "dec_fps": 1851.8518518518517,
+  "me_seconds": null
+ },
+ {
+  "clip": "foreman_cif",
+  "encoder": "libaom",
+  "param": 48,
+  "enc_fps": 11.53579943090056,
+  "dec_fps": 1807.2289156626505,
+  "me_seconds": null
+ },
+ {
+  "clip": "park_joy_420_720p50",
+  "encoder": "reel",
+  "param": 32,
+  "enc_fps": 1.6,
+  "dec_fps": 39.4,
+  "me_seconds": 0.0
+ },
+ {
+  "clip": "park_joy_420_720p50",
+  "encoder": "reel full-search CPU",
+  "param": 32,
+  "enc_fps": 0.24,
+  "dec_fps": 39.54,
+  "me_seconds": 212.651
+ },
+ {
+  "clip": "park_joy_420_720p50",
+  "encoder": "reel full-search CUDA",
+  "param": 32,
+  "enc_fps": 1.47,
+  "dec_fps": 41.24,
+  "me_seconds": 1.561
+ },
+ {
+  "clip": "park_joy_420_720p50",
+  "encoder": "x264",
+  "param": 32,
+  "enc_fps": 21.223912274495934,
+  "dec_fps": 229.88505747126436,
+  "me_seconds": null
+ },
+ {
+  "clip": "park_joy_420_720p50",
+  "encoder": "x264-P",
+  "param": 32,
+  "enc_fps": 27.33485193621868,
+  "dec_fps": 219.78021978021977,
+  "me_seconds": null
+ },
+ {
+  "clip": "park_joy_420_720p50",
+  "encoder": "x265",
+  "param": 32,
+  "enc_fps": 7.342143906020557,
+  "dec_fps": 126.84989429175477,
+  "me_seconds": null
+ },
+ {
+  "clip": "park_joy_420_720p50",
+  "encoder": "libaom",
+  "param": 48,
+  "enc_fps": 0.5933837709538644,
+  "dec_fps": 160.0,
+  "me_seconds": null
+ }
+]
